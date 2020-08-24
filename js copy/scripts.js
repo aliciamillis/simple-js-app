@@ -3,3 +3,5 @@ var pokemonList = [
   {name: 'Pikachu', height: 0.4, color: 'yellow', abilities: ['static', 'lightningrod']}
   {name: 'Wigglytuff', height: 1, color: 'pink', abilities: ['cute-charm', 'frisk']}
 ]
+
+document.write(pokemonList);
