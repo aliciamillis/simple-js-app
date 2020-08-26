@@ -3,6 +3,7 @@ let pokemonList = [
   {name: 'Pikachu', height: 0.4, color: 'yellow', abilities: ['static', 'lightningrod']},
   {name: 'Wigglytuff', height: 1, color: 'pink', abilities: ['cute-charm', 'frisk']}
 ]
+//this loop shows which pokemon are small 
 for (let i=0; i < pokemonList.length; i++) {
   if (pokemonList[i].height < 0.5){
     console.log(pokemonList[i].name + " is so small!");
