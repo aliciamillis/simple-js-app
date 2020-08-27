@@ -1,17 +1,39 @@
 
-//this is my pokemon list
-let pokemonList = [
-  {name: 'Evevee ', height: 0.3 , color: 'brown and yellow ', abilities: ['run-away ', 'adaptable ']},
-  {name: 'Pikachu ', height: 0.4 , color: 'yellow ', abilities: ['static ', 'lightningrod ']},
-  {name: 'Wigglytuff ', height: 1 , color: 'pink ', abilities: ['cute-charm ', 'frisk ']}
-]
-document.write('<h2>===Pokemon List===</h2>');
-document.write("<p>" + "name: " + pokemonList.name + "height: " + pokemonList.height + '<br>' + "color: " + pokemonList.color + "abilities: " + pokemonList.abilities + "</p>");
+var pokemonRepository = (function () {
+  var pokemonList = [
+      {
+      name: 'Evevee ',
+      height: 0.3 ,
+      color: 'brown and yellow ',
+      abilities: ['run-away ', 'adaptable ']
+      },
+      {
+        name: 'Pikachu ',
+        height: 0.4 ,
+        color: 'yellow ',
+        abilities: ['static ', 'lightningrod ']
+      },
+      {
+        name: 'Wigglytuff ',
+        height: 1 ,
+        color: 'pink ',
+        abilities: ['cute-charm ', 'frisk ']
+      }
+    ];
 
-//this loop shows which pokemon are small
-for (let i=0; i < pokemonList.length; i++) {
-  if (pokemonList[i].height < 0.5){
-    document.write("<p>" + "name: " + pokemonList[i].name + "height: " + pokemonList[i].height + '<br>' + "color: " + pokemonList[i].color + "abilities: " + pokemonList[i].abilities + "</p>");
-    console.log(pokemonList[i].name + " is so small!");
-  }
-}
+    function getAll() {
+      return pokemonList;
+    }
+    function add(pokemon) {
+      pokemonList.push(pokemon);
+    }
+    return {
+      getAll: getAll,
+      add: add
+    };
+  })();
+
+getAll.forEach(function(pokemon){
+  document.write("<p>" + "name: " + pokemon.name + "height: " + pokemon.height +
+  '<br>' + "color: " + pokemon.color + "abilities: " + pokemon.abilities + "</p>");
+});
