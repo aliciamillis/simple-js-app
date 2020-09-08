@@ -54,15 +54,15 @@ let pokemonList = [];
       }
 
     //brings in the details for each pokemon
-      function loadDetails(item) {
-        let url = item.detailsUrl;
+      function loadDetails(pokemon) {
+        let url = pokemon.detailsUrl;
         return fetch(url).then(function (response) {
           return response.json();
         }).then(function (details) {
-          item.imageUrl = details.sprites.front_default;
-          item.height = details.height;
-          item.color = details.color;
-          item.abilities = details.abilities;
+          pokemon.imageUrl = details.sprites.front_default,
+          pokemon.height = details.height,
+          pokemon.type = details.type,
+          pokemon.abilities = details.abilities;
         }).catch(function (e) {
           console.error(e);
         });
@@ -92,10 +92,12 @@ let pokemonList = [];
           closeButtonElement.addEventListener('click', hideModal);
 
           let titleElement = document.createElement('h1');
-          titleElement.innerText = pokemon;
+          titleElement.innerText = pokemon.name;
 
           let contentElement = document.createElement('p');
-          contentElement.innerText = pokemon;
+          console.log('fe', pokemon);
+          contentElement.innerText = pokemon.imageUrl + 'height:' + pokemon.height + 'type:' + pokemon.type;
+
 
           modal.appendChild(closeButtonElement);
           modal.appendChild(titleElement);
