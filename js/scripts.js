@@ -59,10 +59,9 @@ let pokemonList = [];
         return fetch(url).then(function (response) {
           return response.json();
         }).then(function (details) {
-          pokemon.imageUrl = details.sprites.front_default,
-          pokemon.height = details.height,
-          pokemon.type = details.type,
-          pokemon.abilities = details.abilities;
+          pokemon.imageUrl = details.sprites.front_default;
+          pokemon.height = details.height;
+          pokemon.weight = details.weight;
         }).catch(function (e) {
           console.error(e);
         });
@@ -78,10 +77,8 @@ let pokemonList = [];
       //variable for modal-container
       function showModal(pokemon) {
         modalContainer.classList.add('is-visible');
-
       // Clear all existing modal content
         modalContainer.innerHTML = '';
-
       //adding modal content
         let modal = document.createElement('div');
         modal.classList.add('modal');
@@ -96,7 +93,10 @@ let pokemonList = [];
 
           let contentElement = document.createElement('p');
           console.log('fe', pokemon);
-          contentElement.innerText = pokemon.imageUrl + 'height:' + pokemon.height + 'type:' + pokemon.type;
+          contentElement.innerText = 'height: ' + pokemon.height + 'weight: ' + pokemon.weight;
+
+          // let imageElement = document.createElement('<img></img>');
+          // imageElement.target = pokemon.imageUrl;
 
 
           modal.appendChild(closeButtonElement);
