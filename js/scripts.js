@@ -95,10 +95,11 @@ let pokemonList = [];
           console.log('fe', pokemon);
           contentElement.innerText = 'height: ' + pokemon.height + 'weight: ' + pokemon.weight;
 
-          // let imageElement = document.createElement('<img></img>');
-          // imageElement.target = pokemon.imageUrl;
+          let img = document.createElement('img');
+          img.src = pokemon.imageUrl;
 
 
+          modal.appendChild(img);
           modal.appendChild(closeButtonElement);
           modal.appendChild(titleElement);
           modal.appendChild(contentElement);
